@@ -1,0 +1,33 @@
+<h1>Hi <%=@the_user.username%></h1>
+
+<h2>Items added(<%= @the_user.own_items.count%>)</h2>
+
+<table width="80%"; border="1"; style="color:#4682B4;font-family:arial">
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Added by</th>
+    <th>Posted</th>
+    <th></th>
+  </tr>
+
+
+  <%@the_user.own_items.each do|an_item|%>
+
+   <tr>
+    <td>
+    <img src="<%=an_item.photo_url%>"></td>
+    <td>
+    <%=an_item.name%>
+    
+    </td>
+    <td><%=an_item.quantity%></td>
+    <td><%=an_item.poster.username%></td>
+    <%#=a_photo.poster.username%>
+    <%#=User.where({:id=>a_photo.owner_id}).at(0).username%>
+    <td><%=an_item.created_at%></td>
+    <td>Show details</td>
+  </tr>
+  <%end%>
+</table>

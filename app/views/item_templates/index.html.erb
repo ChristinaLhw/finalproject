@@ -1,0 +1,67 @@
+<h1 style="color:#008B8B;font-family:arial;">Shopping List</h1>
+
+<style>
+  body {
+    padding-top : 20px;
+    padding-bottom : 20px;
+    padding-left : 40px;
+    background-color: #faeee7;
+  
+  }
+
+
+</style>
+
+<form>
+<label for="cocoa">Image</label>
+<input id="cocoa" type=text placeholder="Enter link to image">
+
+<label for="banana">Name</label>
+<input id="banana" type=text placeholder="Enter item name">
+
+<label for="butter">Quantity</label>
+<input id="butter" type=text placeholder="Enter quantity needed">
+
+<label for="cookies">User ID</label>
+<input id="cookies" type=text placeholder="Enter user ID">
+
+<button>Add an item</button>
+</form>
+<table width="80%"; border="1"; style="color:#4682B4;font-family:arial">
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Added by</th>
+    <th>Posted</th>
+    <th></th>
+  </tr>
+  <% @list_of_items.each do|an_item|%>
+  <tr>
+    <td>
+      <img src="<%=an_item.photo_url%>">
+    </td>
+
+    <td>
+      <%=an_item.name%>
+    </td>
+
+    <td>
+       <%=an_item.quantity%>
+    </td>
+
+    <td>
+       <%=an_item.user_id%>
+    </td>
+    <td>
+      <%=an_item.created_at%>
+    </td>
+
+    <td>
+      <a href="/photos/<%=an_item.id%>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <%end%>
+  </table>

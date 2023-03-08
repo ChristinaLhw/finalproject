@@ -1,0 +1,42 @@
+<h1 style="color:#008B8B;font-family:arial;">List of users</h1>
+
+<style>
+  body {
+    padding-top : 20px;
+    padding-bottom : 20px;
+    padding-left : 40px;
+    padding-right : 40px;
+    background-color: #faeee7;
+  
+  }
+
+</style>
+<table width="80%"; border="1"; style="color:#4682B4;font-family:arial">
+<tr>
+<th>
+ID
+</th>
+
+<th>
+Username
+</th>
+
+<th>
+</th>
+</tr>
+
+<%@list_of_users.each do |a_user|%>
+<tr>
+<td>
+<%= a_user.id%>
+</td>
+
+<td>
+<%= a_user.username%>
+</td>
+
+<td>
+<a href="/users/<%=a_user.username%>">Show detail
+</td>
+<%end%>
+</table>
