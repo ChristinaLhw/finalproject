@@ -1,4 +1,29 @@
-<h1>Hi <%=@the_user.username%></h1>
+<h1 style="color:#008B8B;font-family:arial;">Hi <%=@the_user.username%></h1>
+
+<style>
+  body {
+    padding-top : 20px;
+    padding-bottom : 20px;
+    padding-left : 40px;
+    padding-right : 40px;
+    background-color: #faeee7;
+  
+  }
+
+</style>
+<dl>
+  <dt>ID</dt>
+  <dd><%= @the_user.id%></dd>
+  <dt>Edit user</dt>
+  <dd>
+  
+<form>
+  <label for="eowyn"></label>
+  <input id="eowyn" placeholder=<%= @the_user.username%> value="<%= @the_user.username%>">
+  <button>Update user</button>
+</form>
+</dd>
+</dl>
 
 <h2>Items added(<%= @the_user.own_items.count%>)</h2>
 
