@@ -17,11 +17,30 @@
 
   <body>
     <nav>
+
 <ul>
+  <li><a href="/user_sign_up" style="color:#DB7093;font-family:arial;">Sign Up</a></li>
+  <li><a href="/user_sign_in" style="color:#DB7093;font-family:arial;">Sign In</a></li>
+  <li><a href="/user_sign_out" style="color:#DB7093;font-family:arial;">Sign Out</a></li>
   <li><a href="/users" style="color:#DB7093;font-family:arial;">Users</a></li>
   <li><a href="/items" style="color:#DB7093;font-family:arial;">Shopping List</a></li>
-</ul>
+   
+  <%#=session.fetch(:user_id)%>
+  </ul>
 </nav>
+
+<% if notice.present?%>
+  <div style="border: thin green solid; color: green">
+<%= notice%>
+</div>
+<%end%>
+
+<% if alert.present?%>
+<div style="border: thin red solid; color: red">
+<%=alert%>
+</div>
+<%end%>
+
     <%= yield %>
   </body>
 </html>

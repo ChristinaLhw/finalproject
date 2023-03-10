@@ -11,13 +11,17 @@
 #
 class User < ApplicationRecord
 
- validates :user_id, uniqueness: true
+ validates(:username,
+  {
+    :presence => true,
+   :uniqueness=>{:case_sensitive=> false}
+  }
+  )
  
- has_many :items
-
  has_secure_password
- 
+
  def own_items
+
   my_id = self.id
 
   matching_items = Item.where({ :user_id => my_id })
