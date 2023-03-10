@@ -1,12 +1,5 @@
 class ItemsController < ApplicationController 
 
-  def home
-    matching_items = Item.all
-    @list_of_items=matching_items.order({:created_at=>:desc})
-    
-  render({:template=>"item_templates/index.html.erb"})
-
-  end
 
   def index
   
@@ -24,6 +17,7 @@ class ItemsController < ApplicationController
      render({:template=>"/item_templates/show.html.erb"}) 
   end
 
+ 
   def bye
     the_id=params.fetch("toast_id")
     matching_item=Item.where({:id=> the_id})
@@ -62,13 +56,13 @@ class ItemsController < ApplicationController
     item.name = params.fetch("input_name")
     item.save
 
-    #if save_status==true
+   # if save_status==true
 
     redirect_to("/items/"+item.id.to_s)
 
-  #else
-  #  redirect_to("/items", {:alert=> user.errors.full_messages.to_sentence})
-  #end
+    #else
+     #redirect_to("/items", {:alert=> user.errors.full_messages.to_sentence})
+    # end
   end
 
   end

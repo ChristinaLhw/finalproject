@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #HOME
-  get("/", {:controller=>"items", :action=>"home"})
+  get("/", {:controller=>"users", :action=>"home"})
 
   #USERS
 
@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post("/verify_credentials", {:controller=>"users", :action=>"authenticate"})
 
   get("/insert_user_record", {:controller=>"users", :action=>"create"})
+
+  get("/users/my_items", {:controller=>"users", :action=>"my_items"})
 
 
   #ITEMS

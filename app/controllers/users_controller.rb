@@ -1,5 +1,12 @@
 class UsersController < ApplicationController 
 
+  def home
+    matching_users = User.all
+    @list_of_users = matching_users.order({:username =>:asc})
+    
+  render({:template=>"user_templates/index.html.erb"})
+  end
+
 def index
 
   matching_users = User.all
@@ -18,6 +25,19 @@ def show
   #  redirect_to("/")
 #else
   render ({:template=>"user_templates/show.html.erb"})
+  #end
+
+end
+
+def my_items
+  current_user = session.fetch(:user_id)
+  matching_user = User.where({:user_id=>current_user})
+  @the_user=matching_usernames.at(0)
+
+  #if the_user==nil
+  #  redirect_to("/")
+#else
+  render ({:template=>"user_templates/show_my_items.html.erb"})
   #end
 
 end
