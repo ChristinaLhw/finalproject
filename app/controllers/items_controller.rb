@@ -52,8 +52,10 @@ class ItemsController < ApplicationController
     #new_user_id = params.fetch("input_owner_id")
     #Line below is new and gets user_id from cookie
     #user_id = session.fetch(:user_id)
+     #item.user_id = params.fetch("input_owner_id")
     item = Item.new
-    item.user_id = params.fetch("input_owner_id")
+   
+    item.user_id = session.fetch(:user_id)
     item.photo_url = params.fetch("input_image")
     item.quantity = params.fetch("input_quantity")
     item.name = params.fetch("input_name")
