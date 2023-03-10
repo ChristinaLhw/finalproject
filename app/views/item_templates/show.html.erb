@@ -1,9 +1,74 @@
-Hi
+<h1 style="color:#008B8B;font-family:arial;">Item Details</h1>
 
-<dl>
+<style>
+  body {
+    padding-top : 20px;
+    padding-bottom : 20px;
+    padding-left : 40px;
+    background-color: #faeee7;
+  
+  }
+
+
+</style>
+<dl style="color:#4682B4;font-family:arial">
   <dt>Image</dt>
   <dd>
     <img src="<%=@the_item.photo_url%>">
   </dd>
+
+ <dt>Name</dt>
+  <dd>
+    <p><%=@the_item.name%></p>
+  </dd>
+
+   <dt>Quantity</dt>
+  <dd>
+    <p><%=@the_item.quantity%></p>
+  </dd>
+
+  <dt>Added by</dt>
+  <dd>
+    <p><%=@the_item.poster.username%></p>
+  </dd>
+
+<dt>Added at</dt>
+  <dd>
+    <p><%=@the_item.created_at%></p>
+  </dd>
+
+<h3 style="color:#008B8B;font-family:arial;">Edit item</h3>
+
+<dd>
+    <form action="/update_item/<%=@the_item.id%>">
+      <label for="browser_image">Image url</label>
+      <input id="browser_image" type="text" name="query_image" placeholder="Enter a URL for the image..." value="<%=@the_item.photo_url%>">
+
+<label for="banana">Name</label>
+<input id="banana" type=text name="query_name" placeholder="Enter item name" value="<%=@the_item.name%>">
+
+<label for="butter">Quantity</label>
+<input id="butter" type=text name="query_quantity" placeholder="Enter quantity needed" value="<%=@the_item.quantity%>">
+
+<label for="cookies">User ID</label>
+<input id="cookies" type=text name="query_user_id" placeholder="Enter user ID" 
+value="<%=@the_item.quantity%>">
+
+<button>Update item!</button>
+</form>
+ </dd>     
+
+<h3 style="color:#008B8B;font-family:arial;">Delete item</h3>
+
+<dd>
+<a href="/delete_item/<%=@the_item.id%>;">
+Delete this item
+</a>
+
+</dd>
+
+
+
+
 
  </dl> 

@@ -2,11 +2,12 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  username   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
+#  id              :integer          not null, primary key
+#  password_digest :string
+#  username        :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :integer
 #
 class User < ApplicationRecord
 
@@ -14,6 +15,8 @@ class User < ApplicationRecord
  
  has_many :items
 
+ has_secure_password
+ 
  def own_items
   my_id = self.id
 

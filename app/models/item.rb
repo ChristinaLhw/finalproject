@@ -18,9 +18,9 @@ class Item < ApplicationRecord
  belongs_to :user
 
  def poster
-  my_owner_id = self.user_id
+  poster_id = self.user_id
 
-  matching_users = User.where({ :id => my_owner_id })
+  matching_users = User.where({ :id => poster_id })
 
   the_user = matching_users.at(0)
 

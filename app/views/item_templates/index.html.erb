@@ -12,18 +12,18 @@
 
 </style>
 
-<form>
+<form action="/insert_item_record">
 <label for="cocoa">Image</label>
-<input id="cocoa" type=text placeholder="Enter link to image">
+<input id="cocoa" type=text placeholder="Enter link to image" name="input_image">
 
 <label for="banana">Name</label>
-<input id="banana" type=text placeholder="Enter item name">
+<input id="banana" type=text placeholder="Enter item name" name="input_name">
 
 <label for="butter">Quantity</label>
-<input id="butter" type=text placeholder="Enter quantity needed">
+<input id="butter" type=text placeholder="Enter quantity needed" name="input_quantity">
 
 <label for="cookies">User ID</label>
-<input id="cookies" type=text placeholder="Enter user ID">
+<input id="cookies" type=text placeholder="Enter user ID" name="input_owner_id">
 
 <button>Add an item</button>
 </form>
@@ -51,14 +51,14 @@
     </td>
 
     <td>
-       <%=an_item.user_id%>
+       <%=an_item.poster.username%>
     </td>
     <td>
       <%=an_item.created_at%>
     </td>
 
     <td>
-      <a href="/photos/<%=an_item.id%>">
+      <a href="/items/<%=an_item.id%>">
         Show details
       </a>
     </td>

@@ -16,12 +16,16 @@ def show
 
   #if the_user==nil
   #  redirect_to("/")
-
-  
+#else
   render ({:template=>"user_templates/show.html.erb"})
   #end
 
 end
 
+def create
+
+  render({:template=>"user_templates/show.html.erb"})
+
+end
 
 end
