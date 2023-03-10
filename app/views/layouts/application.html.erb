@@ -17,16 +17,38 @@
 
   <body>
     <nav>
+ <%if session.fetch(:user_id)==nil%>
+ <%#user = User.where({:username=>logged_user_id}).at(0)%>
+ <%#if user == nil%>
 
+<h4>Login/Register</h4>
 <ul>
   <li><a href="/user_sign_up" style="color:#DB7093;font-family:arial;">Sign Up</a></li>
   <li><a href="/user_sign_in" style="color:#DB7093;font-family:arial;">Sign In</a></li>
-  <li><a href="/user_sign_out" style="color:#DB7093;font-family:arial;">Sign Out</a></li>
+</ul>
+<h4>Navigation</h4>
+ <ul>
   <li><a href="/users" style="color:#DB7093;font-family:arial;">Users</a></li>
   <li><a href="/items" style="color:#DB7093;font-family:arial;">Shopping List</a></li>
+     <%#=session.fetch(:user_id)%>
+  </ul>
+
+  <%else%>
+
+<h4>Sign out</h4>
+<ul>
+  <li><a href="/user_sign_out" style="color:#DB7093;font-family:arial;">Sign Out</a></li>
+</ul>
+<h4>Navigation</h4>
+<ul>
+  <li><a href="/users" style="color:#DB7093;font-family:arial;">Users</a></li>
+  <li><a href="/items" style="color:#DB7093;font-family:arial;">Shopping List</a></li>
+</ul>
    
   <%#=session.fetch(:user_id)%>
   </ul>
+  <%end%>
+
 </nav>
 
 <% if notice.present?%>

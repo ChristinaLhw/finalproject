@@ -41,7 +41,8 @@ class ItemsController < ApplicationController
     item.photo_url = params.fetch("query_image")
     item.name = params.fetch("query_name")
     item.quantity = params.fetch("query_quantity")
-    item.user_id = params.fetch("query_user_id")
+   #item.user_id = params.fetch("query_user_id")
+    item.user_id = session.fetch(:user_id)
     item.save
 
     redirect_to("/items/#{item.id}")
